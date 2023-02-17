@@ -9,36 +9,16 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: DrawerWidget(),
-        ),
-        appBar: AppBar(
-          title: const Text("Weather"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
-        ));
+      drawer: Drawer(
+        child: DrawerWidget(),
+      ),
+      appBar: AppBar(
+        title: const Text("Drones"),
+      ),
+      body: Center(),
+    );
   }
 }
