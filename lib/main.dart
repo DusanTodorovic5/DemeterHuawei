@@ -6,7 +6,7 @@ import 'package:demeter_huawei/pages/weather_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 Map<int, Color> color = const {
@@ -23,7 +23,7 @@ Map<int, Color> color = const {
 };
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +55,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/Farms',
       routes: {
         '/Farms': (context) => FarmsListPage(),
-        '/Logs': (context) => LogsPage(),
-        '/Weather': (context) => WeatherPage(),
-        '/Preferences': (context) => PreferencesPage(),
-        '/Drones': (context) => DronesListPage(),
+        '/Logs': (context) => const LogsPage(),
+        '/Weather': (context) => const WeatherPage(),
+        '/Preferences': (context) => const PreferencesPage(),
+        '/Drones': (context) => const DronesListPage(),
       },
     );
   }
