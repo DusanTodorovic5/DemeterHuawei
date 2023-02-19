@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:demeter_huawei/classes/farm.dart';
 import 'package:demeter_huawei/classes/layout_farm.dart';
 import 'package:demeter_huawei/widgets/app_bar.dart';
 import 'package:demeter_huawei/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class FarmsListPage extends StatefulWidget {
   FarmsListPage({super.key});
@@ -12,7 +15,15 @@ class FarmsListPage extends StatefulWidget {
   List<Farm> farms = [];
 
   Future<List<Farm>> loadFarms() async {
-    return [Farm(name: "Test", lastScanned: 1674127176, layout: FarmLayout())];
+    final _json = await rootBundle.loadString('assets/questions.json');
+
+    var parsed = json.decode(_json) as List;
+    farms = [];
+    for (var entry in parsed) {
+      farms.add(Farm.fromJson(entry));
+    }
+
+    return farms;
   }
 }
 
