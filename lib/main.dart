@@ -1,4 +1,5 @@
 import 'package:demeter_huawei/pages/drones_list.dart';
+import 'package:demeter_huawei/pages/farm_page.dart';
 import 'package:demeter_huawei/pages/farms_list.dart';
 import 'package:demeter_huawei/pages/logs_page.dart';
 import 'package:demeter_huawei/pages/preferences_page.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         '/Weather': (context) => const WeatherPage(),
         '/Preferences': (context) => const PreferencesPage(),
         '/Drones': (context) => const DronesListPage(),
+        '/Farm': (context) => const FarmPage(),
       },
     );
   }

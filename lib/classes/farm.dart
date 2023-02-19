@@ -1,17 +1,19 @@
+import 'dart:ffi';
+
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:demeter_huawei/classes/layout_farm.dart';
 
 class Farm {
   String name;
   int lastScanned;
-  FarmLayout layout;
+  List<FarmLayout> layout;
 
   Farm({required this.name, required this.lastScanned, required this.layout});
 
   Farm.fromJson(Map<String, dynamic> json)
       : name = json["name"],
         lastScanned = json["last_scanned"],
-        layout = FarmLayout(); //json["layout"];
+        layout = [for (dynamic x in json["layout"]) FarmLayout.fromJson(x)]; //json["layout"];
 
   Map<String, dynamic> toJson() => {
         "name": name,

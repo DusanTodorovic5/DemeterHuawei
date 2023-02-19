@@ -76,7 +76,7 @@ class _FarmsListPageState extends State<FarmsListPage> {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: InkWell(
         onTap: () {
-          // OPEN FARM PAGE
+          Navigator.pushNamed(context, "/Farm", arguments: farm);
         },
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
