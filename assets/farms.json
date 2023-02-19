@@ -1,3 +1,17 @@
 [
-    
+    {
+        "name":"Farm1",
+        "last_scanned": 1676723875,
+        "layout": {}
+    },
+    {
+        "name":"Farm2",
+        "last_scanned": 1676205475,
+        "layout": {}
+    },
+    {
+        "name":"Farm3",
+        "last_scanned": 1673527075,
+        "layout": {}
+    }
 ]

@@ -15,7 +15,7 @@ class FarmsListPage extends StatefulWidget {
   List<Farm> farms = [];
 
   Future<List<Farm>> loadFarms() async {
-    final _json = await rootBundle.loadString('assets/questions.json');
+    final _json = await rootBundle.loadString('assets/farms.json');
 
     var parsed = json.decode(_json) as List;
     farms = [];
@@ -73,7 +73,7 @@ class _FarmsListPageState extends State<FarmsListPage> {
 
   Widget renderFarm(Farm farm) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: InkWell(
         onTap: () {
           // OPEN FARM PAGE
