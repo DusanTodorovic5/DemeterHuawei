@@ -26,6 +26,14 @@
                     "amount": 12
                 },
                 "last_watered": 1676723875
+            },
+            {
+                "plant_info": {
+                    "name": "Peanut",
+                    "latin_name": "Arachis hypogaea",
+                    "amount": 12
+                },
+                "last_watered": 1676723875
             }
         ]
     },

@@ -20,9 +20,6 @@ class _FarmPageState extends State<FarmPage> {
   Widget build(BuildContext context) {
     final Farm farm = ModalRoute.of(context)?.settings.arguments as Farm;
     return Scaffold(
-      drawer: Drawer(
-        child: DrawerWidget(),
-      ),
       appBar: CustomAppBar(text: farm.name),
       body: ListView(
         children: [
@@ -40,36 +37,39 @@ class _FarmPageState extends State<FarmPage> {
                 children: farm.layout.map<Widget>((FarmLayout layout) {
                   int currentIndex = farm.layout.indexOf(layout);
                   return GestureDetector(
-                    onTap: () {
-                      print('Clicked on ' + layout.plantInfo["name"]);
-                      setState(() {
-                        activeIndex = currentIndex;
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: currentIndex == activeIndex ? Colors.greenAccent : Colors.redAccent,
-                      ),
-                      child: Center(
-                        child: Text(layout.plantInfo["name"]),
-                      )
-                    )
-                  );
+                      onTap: () {
+                        print('Clicked on ' + layout.plantInfo["name"]);
+                        setState(() {
+                          activeIndex = currentIndex;
+                        });
+                      },
+                      child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                            color: currentIndex == activeIndex
+                                ? Colors.greenAccent
+                                : Colors.redAccent,
+                          ),
+                          child: Center(
+                            child: Text(layout.plantInfo["name"]),
+                          )));
                 }).toList(),
               ),
             ),
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.deepPurple,
             ),
             width: double.infinity,
             height: 300.0,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.lightGreen,
             ),
             width: double.infinity,
