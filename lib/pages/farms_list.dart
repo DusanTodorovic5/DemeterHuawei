@@ -63,30 +63,38 @@ class _FarmsListPageState extends State<FarmsListPage> {
   Widget renderFarm(Farm farm) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
+      child: InkWell(
+        onTap: () {
+          // OPEN FARM PAGE
+        },
+        customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                farm.name,
-                style: const TextStyle(fontSize: 22.0),
-              ),
-              Text(
-                "Last scanned: ${farm.agoTime()}",
-                style: const TextStyle(
-                  fontSize: 15.0,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  farm.name,
+                  style: const TextStyle(fontSize: 22.0),
                 ),
-              ),
-            ],
+                Text(
+                  "Last scanned: ${farm.agoTime()}",
+                  style: const TextStyle(
+                    fontSize: 15.0,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
