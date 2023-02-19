@@ -1,6 +1,7 @@
 import express from 'express';
 import { Farm } from './models/farm';
 import { FarmLayout } from './models/layout_farm';
+import { Log } from './models/log';
 import { Weather } from './models/weather';
 import { WeatherDay, WeatherType } from './models/weather_day';
 
@@ -36,14 +37,25 @@ weather.toDate = datum
 weather.days.push(wD)
 weather.days.push(wD2);
 
+// 1995-12-17T03:24:00
+let sortiraniLogovi = new Log().nizSortiranih()
+
+// console.log(sortiraniLogovi)
 const data = {farma:farma, weather: weather, weatherDay:wD}
+
 
 
 const app = express();
 
 // TODO: napravi rute koje vracaju te neke podatke
-app.get('/', (req, res) => res.send(data));
-app.get('/cao', (req, res) => res.send('cao ruta'));
+app.get('/logs', (req, res) => res.send(new Log().nizSortiranih()));
+app.get('/farms', (req, res) => res.send(new Farm().getFarms()));
+app.get('/drones', (req, res) => res.send("dronovi ruta" ));
 
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
+
+
+
+
+
