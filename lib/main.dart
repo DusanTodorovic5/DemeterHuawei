@@ -55,10 +55,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/Farms',
       routes: {
         '/Farms': (context) => FarmsListPage(),
-        '/Logs': (context) => const LogsPage(),
-        '/Weather': (context) => const WeatherPage(),
-        '/Preferences': (context) => const PreferencesPage(),
-        '/Drones': (context) => const DronesListPage(),
+        '/Logs': (context) => LogsPage(),
+        '/Weather': (context) => WeatherPage(),
+        '/Preferences': (context) => PreferencesPage(),
+        '/Drones': (context) => DronesListPage(),
       },
     );
   }
