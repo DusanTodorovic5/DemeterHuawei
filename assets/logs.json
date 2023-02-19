@@ -1,0 +1,30 @@
+[
+    {
+        "action" : "scanned",
+        "text": "Scanned 23 crops",
+        "farm": "Farm1",
+        "droneId": 0,
+        "time": 1676812710
+    },
+    {
+        "action" : "sprayed",
+        "text": "Sprayed 23 Crops",
+        "farm": "Farm1",
+        "droneId": 0,
+        "time": 1676812710
+    },
+    {
+        "action" : "alert",
+        "text": "Found vurnability",
+        "farm": "Farm1",
+        "droneId": 0,
+        "time": 1676812710
+    },
+    {
+        "action" : "watered",
+        "text": "Watered 23 crops",
+        "farm": "Farm1",
+        "droneId": 0,
+        "time": 1676812710
+    }
+]
