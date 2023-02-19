@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
           const Color.fromARGB(255, 99, 183, 134).value,
           color,
         ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 244, 245, 245),
         appBarTheme: AppBarTheme(
           toolbarTextStyle: Theme.of(context)
               .textTheme
