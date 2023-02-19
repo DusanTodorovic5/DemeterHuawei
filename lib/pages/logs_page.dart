@@ -18,7 +18,7 @@ class _LogsPageState extends State<LogsPage> {
         child: DrawerWidget(),
       ),
       appBar: const CustomAppBar(text: "Logs"),
-      body: Center(),
+      body: const Center(),
     );
   }
 }
