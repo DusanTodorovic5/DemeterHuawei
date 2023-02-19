@@ -1,4 +1,5 @@
 import express from 'express';
+import { Drone } from './models/drone';
 import { Farm } from './models/farm';
 import { FarmLayout } from './models/layout_farm';
 import { Log } from './models/log';
@@ -50,7 +51,7 @@ const app = express();
 // TODO: napravi rute koje vracaju te neke podatke
 app.get('/logs', (req, res) => res.send(new Log().nizSortiranih()));
 app.get('/farms', (req, res) => res.send(new Farm().getFarms()));
-app.get('/drones', (req, res) => res.send("dronovi ruta" ));
+app.get('/drones', (req, res) => res.send(new Drone().getDrones()));
 
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
