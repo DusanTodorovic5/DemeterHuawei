@@ -1,3 +1,4 @@
+import 'package:demeter_huawei/widgets/app_bar.dart';
 import 'package:demeter_huawei/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,7 @@ class _WeatherPageState extends State<WeatherPage> {
       drawer: Drawer(
         child: DrawerWidget(),
       ),
-      appBar: AppBar(
-        title: const Text("Drones"),
-      ),
+      appBar: const CustomAppBar(text: "Weather"),
       body: Center(),
     );
   }
