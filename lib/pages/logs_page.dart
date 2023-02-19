@@ -100,7 +100,15 @@ class _LogsPageState extends State<LogsPage> {
                     style: const TextStyle(fontSize: 22.0),
                   ),
                   Text(
-                    "Time: ${log.dateTime()}",
+                    "Time: ${log.dateTime().toString().substring(0, 19)}",
+                    style: const TextStyle(
+                      fontSize: 15.0,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    "Farm: ${log.farm}",
                     style: const TextStyle(
                       fontSize: 15.0,
                       fontStyle: FontStyle.italic,
