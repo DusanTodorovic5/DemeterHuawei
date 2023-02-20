@@ -13,7 +13,9 @@ class Farm {
   Farm.fromJson(Map<String, dynamic> json)
       : name = json["name"],
         lastScanned = json["last_scanned"],
-        layout = [for (dynamic x in json["layout"]) FarmLayout.fromJson(x)]; //json["layout"];
+        layout = [
+          for (dynamic x in json["layout"]) FarmLayout.fromJson(x)
+        ]; //json["layout"];
 
   Map<String, dynamic> toJson() => {
         "name": name,
