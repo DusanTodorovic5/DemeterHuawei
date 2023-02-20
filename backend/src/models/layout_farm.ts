@@ -10,8 +10,5 @@ export class FarmLayout {
     lastWatered: Date
     plantInfo
 
-    //TODO: ubaciti polja kao na frontu - prazna
-    // Map<String, dynamic> plantInfo = {};
-    // int lastWatered = 0;
     
 }
