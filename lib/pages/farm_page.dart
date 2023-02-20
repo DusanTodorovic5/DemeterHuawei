@@ -1,6 +1,7 @@
 import 'package:demeter_huawei/classes/layout_farm.dart';
 import 'package:demeter_huawei/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 import '../main.dart';
 import '../classes/farm.dart';
@@ -13,7 +14,49 @@ class FarmPage extends StatefulWidget {
   State<FarmPage> createState() => _FarmPageState();
 }
 
+class ImageLayout {
+  String src;
+  String name;
+  Color color;
+  bool clicked = false;
+
+  ImageLayout({required this.src, required this.name, required this.color});
+}
+
 class _FarmPageState extends State<FarmPage> {
+  String selected = "";
+  List<ImageLayout> images = [
+    ImageLayout(
+      src: "1.png",
+      name: "Tomato",
+      color: const Color.fromARGB(255, 83, 255, 115),
+    ),
+    ImageLayout(
+      src: "2.png",
+      name: "Onions",
+      color: const Color.fromARGB(255, 236, 255, 68),
+    ),
+    ImageLayout(
+      src: "3.png",
+      name: "Tomato",
+      color: const Color.fromARGB(255, 83, 255, 115),
+    ),
+    ImageLayout(
+      src: "2.png",
+      name: "Onions",
+      color: const Color.fromARGB(255, 236, 255, 68),
+    ),
+    ImageLayout(
+      src: "3.png",
+      name: "Tomato",
+      color: const Color.fromARGB(255, 83, 255, 115),
+    ),
+    ImageLayout(
+      src: "2.png",
+      name: "Onions",
+      color: const Color.fromARGB(255, 236, 255, 68),
+    ),
+  ];
   int activeIndex = -1;
 
   @override
@@ -23,58 +66,114 @@ class _FarmPageState extends State<FarmPage> {
       appBar: CustomAppBar(text: farm.name),
       body: ListView(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Farm Layout",
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              )
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: color[700]!),
-              ),
+            child: SizedBox(
               width: double.infinity,
-              height: 250.0,
+              height: 300.0,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: farm.layout.map<Widget>((FarmLayout layout) {
-                  int currentIndex = farm.layout.indexOf(layout);
-                  return GestureDetector(
-                      onTap: () {
-                        print('Clicked on ' + layout.plantInfo["name"]);
-                        setState(() {
-                          activeIndex = currentIndex;
-                        });
-                      },
-                      child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          height: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(15),
+                children: images.map<Widget>((ImageLayout img) {
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        selected = img.name;
+                        for (ImageLayout el in images) {
+                          if (el.name == img.name) {
+                            el.clicked = true;
+                          } else {
+                            el.clicked = false;
+                          }
+                        }
+                      });
+                    },
+                    child: !img.clicked
+                        ? SimpleShadow(
+                            color: Colors.white,
+                            opacity: 0.2,
+                            child: ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                img.color,
+                                BlendMode.srcATop,
+                              ),
+                              child: Image.asset(
+                                "assets/${img.src}",
+                                fit: BoxFit.scaleDown,
+                              ),
                             ),
-                            color: currentIndex == activeIndex
-                                ? Colors.greenAccent
-                                : Colors.redAccent,
+                          )
+                        : SimpleShadow(
+                            opacity: 1,
+                            offset: const Offset(0, 0),
+                            sigma: 2,
+                            child: ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                img.color,
+                                BlendMode.srcATop,
+                              ),
+                              child: Image.asset(
+                                "assets/${img.src}",
+                                fit: BoxFit.scaleDown,
+                              ),
+                            ),
                           ),
-                          child: Center(
-                            child: Text(layout.plantInfo["name"]),
-                          )));
+                  );
                 }).toList(),
               ),
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.deepPurple,
-            ),
-            width: double.infinity,
-            height: 300.0,
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.lightGreen,
-            ),
-            width: double.infinity,
-            height: 300.0,
-          ),
+          (selected == ""
+              ? Container()
+              : Column(
+                  children: [
+                    Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          ListTile(
+                            title: Text(
+                              "Selected crop: $selected",
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ListTile(
+                            title: Text(
+                              selected == "Tomato"
+                                  ? "Crops are healthy"
+                                  : "Some crops might be vulnerable",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: selected == "Tomato"
+                                    ? Colors.green
+                                    : Colors.orange,
+                              ),
+                            ),
+                            subtitle: Text(
+                              selected == "Tomato"
+                                  ? "Automatic spraying is on"
+                                  : "Automatic spraying is off",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
         ],
         // crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
