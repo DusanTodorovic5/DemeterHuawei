@@ -55,7 +55,15 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  
+  fonts:
+    - family:  SprayDroneIcon
+      fonts:
+       - asset: assets/fonts/SprayDroneIcon.ttf
+    - family:  DroneFarm
+      fonts:
+       - asset: assets/fonts/DroneFarm.ttf
+
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
