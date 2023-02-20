@@ -2,16 +2,49 @@
     {
         "name":"Farm1",
         "last_scanned": 1676723875,
-        "layout": {}
+        "layout": [
+            {
+                "plant_info": {
+                    "name": "Potato",
+                    "latin_name": "Solanum tuberosum",
+                    "amount": 12
+                },
+                "last_watered": 1676723875
+            },
+            {
+                "plant_info": {
+                    "name": "Tomato",
+                    "latin_name": "Solanum lycopersicum",
+                    "amount": 18
+                },
+                "last_watered": 1676723875
+            },
+            {
+                "plant_info": {
+                    "name": "Peanut",
+                    "latin_name": "Arachis hypogaea",
+                    "amount": 12
+                },
+                "last_watered": 1676723875
+            },
+            {
+                "plant_info": {
+                    "name": "Peanut",
+                    "latin_name": "Arachis hypogaea",
+                    "amount": 12
+                },
+                "last_watered": 1676723875
+            }
+        ]
     },
     {
         "name":"Farm2",
         "last_scanned": 1676205475,
-        "layout": {}
+        "layout": []
     },
     {
         "name":"Farm3",
         "last_scanned": 1673527075,
-        "layout": {}
+        "layout": []
     }
 ]

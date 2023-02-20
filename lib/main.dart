@@ -1,4 +1,5 @@
 import 'package:demeter_huawei/pages/drones_list.dart';
+import 'package:demeter_huawei/pages/farm_page.dart';
 import 'package:demeter_huawei/pages/farms_list.dart';
 import 'package:demeter_huawei/pages/logs_page.dart';
 import 'package:demeter_huawei/pages/weather_page.dart';
