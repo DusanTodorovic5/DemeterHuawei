@@ -57,6 +57,7 @@ class MyApp extends StatelessWidget {
         '/Logs': (context) => LogsPage(),
         '/Weather': (context) => WeatherPage(),
         '/Drones': (context) => DronesListPage(),
+        '/Preferences': (context) => WeatherPage(),
       },
     );
   }
